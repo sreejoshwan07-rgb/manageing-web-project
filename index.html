@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Feedback Form</title>
+</head>
+<body>
+
+    <h2>Student Feedback Form</h2>
+
+    <form id="feedbackForm">
+        <label>Student Name:</label><br>
+        <input type="text" id="studentName" required>
+        <br><br>
+
+        <label>Feedback:</label><br>
+        <textarea id="feedback" rows="4" required></textarea>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h3>Submitted Feedback</h3>
+    <p id="result"></p>
+
+    <script>
+        const form = document.getElementById("feedbackForm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("studentName").value;
+            const feedback = document.getElementById("feedback").value;
+
+            document.getElementById("result").innerHTML =
+                "<b>Student Name:</b> " + name +
+                "<br><b>Feedback:</b> " + feedback;
+
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
